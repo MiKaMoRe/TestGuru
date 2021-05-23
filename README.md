@@ -6,6 +6,9 @@ Entities of TestGuru project:
 * Users
 * Administrators
 * Tests
+* Questions
+* Answers
+* Results
 
 ## Administrator
 
@@ -15,7 +18,18 @@ Can create new tests and control results
 
 Can complete any tests
 
-## Test
+## Tests
 
-Contain some questions and return result
+Have description
 
+## Questions
+
+Have description of question and contains answer options
+
+## Answers
+
+Have description of answer
+
+## Results
+
+Contains results of answers to questions
