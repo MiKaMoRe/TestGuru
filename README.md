@@ -9,6 +9,7 @@ Entities of TestGuru project:
 * Questions
 * Answers
 * Results
+* Categories
 
 ## Administrator
 
@@ -32,4 +33,8 @@ Have description of answer
 
 ## Results
 
-Contains results of answers to questions
+Store user test results
+
+## Categories
+
+Have description and contains tests
