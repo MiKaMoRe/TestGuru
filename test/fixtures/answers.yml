@@ -3,9 +3,7 @@
 one:
   description: MyString
   correct: false
-  question: one
 
 two:
   description: MyString
   correct: false
-  question: two

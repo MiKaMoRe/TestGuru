@@ -1,9 +1,8 @@
 class CreateAnswers < ActiveRecord::Migration[6.1]
   def change
     create_table :answers do |t|
-      t.string :description
-      t.boolean :correct
-      t.references :question, null: false, foreign_key: true
+      t.string :description, null: false
+      t.boolean :correct, default: false
 
       t.timestamps
     end

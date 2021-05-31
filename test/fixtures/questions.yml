@@ -3,9 +3,7 @@
 one:
   number: 1
   description: MyString
-  test: one
 
 two:
   number: 1
   description: MyString
-  test: two
