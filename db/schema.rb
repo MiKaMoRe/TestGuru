@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_210_530_192_547) do
+ActiveRecord::Schema.define(version: 20_210_531_185_605) do
   create_table 'answers', force: :cascade do |t|
     t.string 'description', null: false
-    t.boolean 'correct', null: false
+    t.boolean 'correct', default: false, null: false
     t.integer 'question_id', null: false
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20_210_530_192_547) do
   end
 
   create_table 'categories', force: :cascade do |t|
-    t.string 'title'
+    t.string 'title', null: false
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
   end
@@ -35,19 +35,8 @@ ActiveRecord::Schema.define(version: 20_210_530_192_547) do
     t.index ['test_id'], name: 'index_questions_on_test_id'
   end
 
-  create_table 'results', force: :cascade do |t|
-    t.integer 'points', null: false
-    t.integer 'test_id', null: false
-    t.integer 'user_id', null: false
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index ['test_id'], name: 'index_results_on_test_id'
-    t.index ['user_id'], name: 'index_results_on_user_id'
-  end
-
   create_table 'tests', force: :cascade do |t|
     t.string 'title', null: false
-    t.string 'description'
     t.integer 'level', default: 0, null: false
     t.integer 'category_id', null: false
     t.datetime 'created_at', precision: 6, null: false
@@ -59,14 +48,11 @@ ActiveRecord::Schema.define(version: 20_210_530_192_547) do
     t.string 'name', null: false
     t.string 'login', null: false
     t.string 'password', null: false
-    t.string 'status', null: false
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
   end
 
   add_foreign_key 'answers', 'questions'
   add_foreign_key 'questions', 'tests'
-  add_foreign_key 'results', 'tests'
-  add_foreign_key 'results', 'users'
   add_foreign_key 'tests', 'categories'
 end
