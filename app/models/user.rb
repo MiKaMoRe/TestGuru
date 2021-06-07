@@ -1,8 +1,12 @@
 class User < ApplicationRecord
   def complete_tests(level = 0)
     Result
-      .joins(:test, :user)
-      .select('tests.title')
-      .where('users.id == :id AND tests.level == :level', id: id, level: level)
+      .select('test_id')
+      .where('user_id == :id', id: id)
+      .filter_map do |result|
+        Test
+          .select('title')
+          .where('id == :id AND level == :level', id: result.test_id, level: level)[0]
+      end
   end
 end
