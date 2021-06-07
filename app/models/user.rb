@@ -1,12 +1,9 @@
 class User < ApplicationRecord
   def complete_tests(level = 0)
-    Result
-      .select('test_id')
-      .where('user_id == :id', id: id)
-      .filter_map do |result|
-        Test
-          .select('title')
-          .where('id == :id AND level == :level', id: result.test_id, level: level)[0]
-      end
+    Test
+      .select('tests.title')
+      .joins('INNER JOIN results ON results.test_id == tests.id')
+      .joins('INNER JOIN users ON results.user_id == users.id')
+      .where('tests.level == :level AND users.id == :id', level: level, id: id)
   end
 end

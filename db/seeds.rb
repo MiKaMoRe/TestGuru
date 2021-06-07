@@ -48,7 +48,8 @@ answers = Answer.create!([
 ])
 # Results
 results = Result.create!([
-  { points: 20, test_id: 1, user_id: users[1].id },
-  { points: 100, test_id: 2, user_id: users[0].id },
-  { points: 89, test_id: 1, user_id: users[0].id }
+  { points: 20, test_id: tests[0].id, user_id: users[1].id },
+  { points: 100, test_id: tests[1].id, user_id: users[0].id },
+  { points: 89, test_id: tests[2].id, user_id: users[0].id },
+  { points: 70, test_id: tests[4].id, user_id: users[1].id }
 ])
