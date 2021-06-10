@@ -4,7 +4,5 @@ class User < ApplicationRecord
       .select('tests.title')
       .joins('INNER JOIN results ON results.test_id == tests.id')
       .where(results: { user_id: id }, level: level)
-      .map { |test| test.title }
-      .join(', ')
   end
 end
