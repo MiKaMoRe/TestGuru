@@ -53,3 +53,10 @@ results = Result.create!([
   { points: 89, test_id: tests[2].id, user_id: users[0].id },
   { points: 70, test_id: tests[4].id, user_id: users[1].id }
 ])
+TestsUser
+tests_user = TestsUser.create!([
+  { test_id: tests[1].id, user_id: users[0].id, progress: 100 },
+  { test_id: tests[0].id, user_id: users[0].id },
+  { test_id: tests[2].id, user_id: users[1].id },
+  { test_id: tests[0].id, user_id: users[1].id, progress: 56 }
+])
