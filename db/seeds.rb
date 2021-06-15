@@ -46,17 +46,10 @@ answers = Answer.create!([
   },
   { description: 'I dont know', question: questions[2] }
 ])
-# Results
-results = Result.create!([
-  { points: 20, test: tests[0], user: users[1] },
-  { points: 100, test: tests[1], user: users[0] },
-  { points: 89, test: tests[2], user: users[0] },
-  { points: 70, test: tests[4], user: users[1] }
-])
 # TestsUser
 tests_user = TestsUser.create!([
-  { test: tests[1], user: users[0], progress: 100 },
-  { test: tests[0], user: users[0] },
+  { test: tests[1], user: users[0], progress: 100, points: 87 },
+  { test: tests[0], user: users[0], progress: 100, points: 45 },
   { test: tests[2], user: users[1] },
-  { test: tests[0], user: users[1], progress: 56 }
+  { test: tests[0], user: users[1], progress: 56 , points: 10}
 ])
