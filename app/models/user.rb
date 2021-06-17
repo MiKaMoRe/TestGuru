@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
   validates :name, :login, :password, presence: true
 
-  def complete_tests(level = 0) # Нужно ли менять на scope метод, если это instance метод
+  def complete_tests(level = 0)
     Test
       .joins(:tests_users)
       .where(tests_users: { user_id: id }, level: level)

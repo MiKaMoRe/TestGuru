@@ -51,5 +51,5 @@ tests_user = TestsUser.create!([
   { test: tests[1], user: users[0], progress: 100, points: 87 },
   { test: tests[0], user: users[0], progress: 100, points: 45 },
   { test: tests[2], user: users[1] },
-  { test: tests[0], user: users[1], progress: 56 , points: 10}
+  { test: tests[0], user: users[1], progress: 56, points: 10 }
 ])
