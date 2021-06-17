@@ -3,7 +3,9 @@ class User < ApplicationRecord
   has_many :tests, through: :tests_users, dependent: :delete_all
   has_many :created_tests, foreign_key: 'author_id', class_name: 'Test', dependent: :destroy
 
-  def complete_tests(level = 0)
+  validates :name, :login, :password, presence: true
+
+  def complete_tests(level = 0) # Нужно ли менять на scope метод, если это instance метод
     Test
       .joins(:tests_users)
       .where(tests_users: { user_id: id }, level: level)

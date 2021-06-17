@@ -22,8 +22,8 @@ tests = Test.create!([
   { title: 'How are you?', category: categories[1], author: users[0] },
   { title: 'Personal pronouns', category: categories[1], author: users[0] },
   { title: 'HTTP protocol', category: categories[0], author: users[1] },
-  { title: 'ORM', category: categories[0], author: users[1] },
-  { title: 'Rails models', category: categories[0], author: users[1], level: 1 }
+  { title: 'ORM', category: categories[0], author: users[1], level: 5 },
+  { title: 'Rails models', category: categories[0], author: users[1], level: 2 }
 ])
 # Questions
 questions = Question.create!([
