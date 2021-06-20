@@ -1,11 +1,11 @@
 class Answer < ApplicationRecord
   belongs_to :question
 
-  scope :correct, -> { where(correct: true) }
-
   validates :description, presence: true
   validate :validate_amount_answers, on: :create
 
+  scope :correct, -> { where(correct: true) }
+  
   private
 
   def validate_amount_answers
