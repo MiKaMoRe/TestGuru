@@ -11,6 +11,10 @@ module TestGuru
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
+    initializer(:remove_action_mailbox_and_activestorage_routes, after: :add_routing_paths) do |app|
+      app.routes_reloader.paths.delete_if { |path| path =~ /activestorage/ }
+      app.routes_reloader.paths.delete_if { |path| path =~ /actionmailbox/ }
+    end
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

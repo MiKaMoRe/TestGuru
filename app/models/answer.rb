@@ -5,7 +5,7 @@ class Answer < ApplicationRecord
   validate :validate_amount_answers, on: :create
 
   scope :correct, -> { where(correct: true) }
-  
+
   private
 
   def validate_amount_answers
