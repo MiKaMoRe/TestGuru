@@ -13,10 +13,10 @@ class Test < ApplicationRecord
   scope :normal, -> { where(level: (2..4)) }
   scope :hard, -> { where(level: (5..Float::INFINITY)) }
 
-  scope :get_by_title, lambda { |title|
+  scope :get_by_title, -> do |title|
     joins(:category)
       .where(categories: { title: title })
       .order(title: :desc)
       .pluck(:title)
-  }
+  end
 end

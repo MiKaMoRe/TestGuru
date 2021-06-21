@@ -20,14 +20,14 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    @question_by_id.destroy
+    @question.destroy
     redirect_to controller: 'questions', action: 'index'
   end
 
   private
 
   def find_question
-    @question_by_id = Question.find(params['id'])
+    @question = Question.find(params['id'])
   end
 
   def find_test
