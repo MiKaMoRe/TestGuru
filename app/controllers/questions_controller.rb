@@ -1,11 +1,13 @@
 class QuestionsController < ApplicationController
   before_action :find_test, only: %i[create new index]
   before_action :find_question, only: %i[destroy show]
-  before_action :find_questions, only: %i[index create]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
-  def index; end
+  def index
+    @questions = @test.questions
+    render :index
+  end
 
   def show; end
 
@@ -25,10 +27,6 @@ class QuestionsController < ApplicationController
   end
 
   private
-
-  def find_questions
-    @questions = @test.questions
-  end
 
   def find_question
     @question = Question.find(params[:id])
