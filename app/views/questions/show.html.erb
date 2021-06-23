@@ -1,5 +1,3 @@
 <h3>Вопрос: <%= @question.description %></h3>
 <h4>Варианты ответа:</h4>
-<% @question.answers.each do |answer| %>
-  <li><%= answer.description %></li>
-<% end %>
+<%= render @question.answers %>
