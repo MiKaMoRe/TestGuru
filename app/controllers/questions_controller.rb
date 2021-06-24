@@ -6,7 +6,6 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = @test.questions
-    render :index
   end
 
   def show; end
