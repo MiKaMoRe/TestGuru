@@ -9,7 +9,8 @@
 # Categories
 categories = Category.create!([
                                 { title: 'Rails' },
-                                { title: 'English language' }
+                                { title: 'English language' },
+                                { title: 'Информатика' }
                               ])
 # Users
 users = User.create!([
@@ -23,16 +24,20 @@ tests = Test.create!([
                        { title: 'Personal pronouns', category: categories[1], author: users[0] },
                        { title: 'HTTP protocol', category: categories[0], author: users[1] },
                        { title: 'ORM', category: categories[0], author: users[1], level: 5 },
-                       { title: 'Rails models', category: categories[0], author: users[1], level: 2 }
+                       { title: 'Rails models', category: categories[0], author: users[1], level: 2 },
+                       { title: 'Windows', category: categories[2], author: users[0]}
                      ])
 # Questions
 questions = Question.create!([
                                { description: 'I __ a new student', test: tests[0] },
                                { description: 'Manny and Max __ here ', test: tests[0] },
-                               { description: 'What is HTTP protocol?', test: tests[2] }
+                               { description: 'What is HTTP protocol?', test: tests[2] },
+                               { description: 'Единицей измерения информации является:', test: tests[5] },
+                               { description: 'Какая система счисления используется при представлении числа в памяти компьютера:', test: tests[5] },
+                               { description: 'Какие из перечисленных ниже устройств являются устройствами ввода', test: tests[5] }
                              ])
-# Answers
-answers = Answer.create!([
+
+Answer.create!([
                            { description: 'are', question: questions[0] },
                            { description: 'am', question: questions[0] },
                            { description: 'is', question: questions[0], correct: true },
@@ -44,7 +49,19 @@ answers = Answer.create!([
                              question: questions[2],
                              correct: true
                            },
-                           { description: 'I dont know', question: questions[2] }
+                           { description: 'I dont know', question: questions[2] },
+                           { description: 'бод', question: questions[3] },
+                           { description: 'бит', question: questions[3], correct: true },
+                           { description: 'ампер', question: questions[3] },
+                           { description: 'герц', question: questions[3] },
+                           { description: 'десятичная', question: questions[4] },
+                           { description: 'двоичная', question: questions[4], correct: true },
+                           { description: 'троичная', question: questions[4] },
+                           { description: 'шестидесятеричная', question: questions[4] },
+                           { description: 'клавиатура', question: questions[5], correct:true },
+                           { description: 'дискета', question: questions[5] },
+                           { description: 'сканер', question: questions[5], correct:true },
+                           { description: 'дисплей', question: questions[5] }
                          ])
 # TestsUser
 # tests_user = TestsUser.create!([
