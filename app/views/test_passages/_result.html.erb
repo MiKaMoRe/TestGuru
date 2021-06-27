@@ -1,0 +1,11 @@
+<%  
+  if @test_passage.succesed?(@percent)
+    colour = '#16db00'
+    message = 'Test was passed'
+  else
+    colour = '#f00'
+    message = 'Test was not succesed'
+  end
+%>
+<h1 style="color:<%= colour %>;"><%= @percent %>%</h1>
+<h2><%= message %></h2>

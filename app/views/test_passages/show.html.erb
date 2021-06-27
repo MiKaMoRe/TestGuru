@@ -13,3 +13,5 @@
   <% end %>
   <%= form.submit 'Next' %>
 <% end %>
+
+<%= @test_passage.questions.index(@test_passage.current_question) + 1 %> questions out of <%= @test_passage.questions.count %>
