@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :tests_users, dependent: :destroy
-  has_many :tests, through: :tests_users, dependent: :delete_all
+  has_many :test_passages, dependent: :destroy
+  has_many :tests, through: :test_passages, dependent: :delete_all
   has_many :created_tests, foreign_key: 'author_id', class_name: 'Test', dependent: :destroy
 
   validates :name, :login, :password, presence: true
@@ -9,5 +9,9 @@ class User < ApplicationRecord
     Test
       .joins(:tests_users)
       .where(tests_users: { user_id: id }, level: level)
+  end
+
+  def test_passage(test)
+    test_passages.order(id: :desc).find_by(test_id: test.id)
   end
 end

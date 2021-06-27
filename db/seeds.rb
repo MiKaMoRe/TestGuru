@@ -37,7 +37,7 @@ answers = Answer.create!([
                            { description: 'am', question: questions[0] },
                            { description: 'is', question: questions[0], correct: true },
                            { description: 'is not', question: questions[1] },
-                           { description: 'arent', question: questions[1] },
+                           { description: 'arent', question: questions[1], correct: true  },
                            { description: 'aren\'', question: questions[1] },
                            {
                              description: 'The HTTP is an application layer protocol for distributed, collaborative, hypermedia information systems.',
@@ -47,9 +47,9 @@ answers = Answer.create!([
                            { description: 'I dont know', question: questions[2] }
                          ])
 # TestsUser
-tests_user = TestsUser.create!([
-                                 { test: tests[1], user: users[0], progress: 100, points: 87 },
-                                 { test: tests[0], user: users[0], progress: 100, points: 45 },
-                                 { test: tests[2], user: users[1] },
-                                 { test: tests[0], user: users[1], progress: 56, points: 10 }
-                               ])
+# tests_user = TestsUser.create!([
+#                                  { test: tests[1], user: users[0], progress: 100, points: 87 },
+#                                  { test: tests[0], user: users[0], progress: 100, points: 45 },
+#                                  { test: tests[2], user: users[1] },
+#                                  { test: tests[0], user: users[1], progress: 56, points: 10 }
+#                                ])
