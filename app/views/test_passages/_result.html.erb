@@ -1,13 +1,2 @@
-<% 
-  percent = @test_passage.correct_percent
-
-  if @test_passage.succesed?(percent)
-    class_name = 'passed'
-    message = 'Test was passed'
-  else
-    class_name = 'not_passed'
-    message = 'Test was not succesed'
-  end
-%>
-<h1 class="<%= class_name %>"><%= percent %>%</h1>
-<h2><%= message %></h2>
+<h1 class="<%= passed[:class_name] %>"><%= percent %>%</h1>
+<h2><%= passed[:message] %></h2>
