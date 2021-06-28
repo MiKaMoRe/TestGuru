@@ -3,9 +3,7 @@ class TestPassagesController < ApplicationController
 
   def show; end
 
-  def result
-    @percent = correct_percent
-  end
+  def result; end
 
   def update
     @test_passage.accept!(params['answer_ids'])
@@ -21,9 +19,5 @@ class TestPassagesController < ApplicationController
 
   def set_test_passage
     @test_passage = TestPassage.find(params['id'])
-  end
-  
-  def correct_percent
-    (@test_passage.correct_questions.to_f /  @test_passage.questions.count * 100).to_i
   end
 end

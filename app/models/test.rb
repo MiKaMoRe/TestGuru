@@ -2,7 +2,7 @@ class Test < ApplicationRecord
   belongs_to :author, foreign_key: 'author_id', class_name: 'User'
   belongs_to :category
 
-  has_many :test_passages, dependent: :delete_all
+  has_many :test_passages
   has_many :users, through: :test_passages, dependent: :destroy
   has_many :questions, dependent: :destroy
 

@@ -1,3 +1,11 @@
-// Place all the styles related to the test_passages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.results{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.passed{
+  color: #16db00;
+}
+.not_passed{
+  color: #f00;
+}
