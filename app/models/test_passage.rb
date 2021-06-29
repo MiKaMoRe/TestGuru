@@ -18,6 +18,10 @@ class TestPassage < ApplicationRecord
     self.current_question = next_question
   end
 
+  def current_question_number
+    questions.index(current_question) + 1
+  end
+
   def completed?
     current_question.nil?
   end
