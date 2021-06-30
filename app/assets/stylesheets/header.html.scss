@@ -1,0 +1,13 @@
+header{
+  & .wrapper{
+    display: flex;
+    justify-content: space-between;
+  }
+  & .profile{
+    display: flex;
+    align-items: center;
+    & *:not(:last-child){
+      padding-right: 20px;
+    }
+  }
+}

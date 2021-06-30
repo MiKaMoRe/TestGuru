@@ -1,0 +1,18 @@
+<header>
+  <div class="wrapper">
+    <div>
+      <h1><%= link_to 'TestGuru', '/' %></h1>
+    </div>
+    <% if logged_in? %>
+      <div class="profile">
+        <p>Welcome, <b> <%= current_user.name %> </b> Guru</p>
+        <%= link_to 'Logout', '/logout' %>
+      </div>
+    <% else %>
+      <div class="profile">
+        <%= link_to 'Register', '/signup' %>
+        <%= link_to 'Login', '/login' %>
+      </div>
+    <% end %>
+  </div>
+</header>

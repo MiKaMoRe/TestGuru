@@ -60,16 +60,16 @@ ActiveRecord::Schema.define(version: 2021_06_27_043024) do
 
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
-    t.string "login", null: false
-    t.string "password", null: false
+    t.string "email", null: false
+    t.string "password_digest", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "answers", "questions", on_delete: :cascade
-  add_foreign_key "questions", "tests", on_delete: :cascade
-  add_foreign_key "test_passages", "tests", on_delete: :cascade
-  add_foreign_key "test_passages", "users", on_delete: :cascade
-  add_foreign_key "tests", "categories", on_delete: :cascade
-  add_foreign_key "tests", "users", column: "author_id", on_delete: :cascade
+  add_foreign_key "answers", "questions"
+  add_foreign_key "questions", "tests"
+  add_foreign_key "test_passages", "tests"
+  add_foreign_key "test_passages", "users"
+  add_foreign_key "tests", "categories"
+  add_foreign_key "tests", "users", column: "author_id"
 end
