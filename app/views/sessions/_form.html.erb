@@ -1,6 +1,6 @@
 <%= form_with url: sessions_path, local: true do |form| %>
   <% if flash[:alert] %>
-    <%= flash_message %>
+    <%= flash_message :alert %>
   <% end %>
 
   <p>

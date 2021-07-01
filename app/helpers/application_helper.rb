@@ -9,7 +9,7 @@ module ApplicationHelper
             target: '_blank'
   end
 
-  def flash_message
-    content_tag :p, flash[:alert], class: 'flash alert'
+  def flash_message(type)
+    content_tag :p, flash[type], class: 'flash alert'
   end
 end
