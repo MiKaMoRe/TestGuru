@@ -7,12 +7,12 @@ Rails.application.routes.draw do
 
   get :signup, to: 'users#new'
   get :login, to: 'sessions#new'
-  get :logout, to: 'sessions#logout'
+  delete :logout, to: 'sessions#destroy'
 
   resources :users, only: :create
   resources :sessions, only: :create
 
-  resources :tests, only: %i[index show] do
+  resources :tests, only: %i[index show new create] do
     resources :questions, shallow: true, except: %i[index] do
       resources :answers, shallow: true, except: %i[index]
     end

@@ -6,12 +6,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     
-    if !@user.email_valid?
-      flash.now[:alert] = 'Incorrect email format'
-      render :new
-    elsif @user.save
+    if @user.save
       session[:user_id] = @user.id
-      redirect_to session[:target]
+      redirect_to cookies[:selected_path]
+      cookies.delete :selected_path
     else
       render :new
     end

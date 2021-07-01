@@ -6,6 +6,7 @@ class User < ApplicationRecord
   validates :email, :name, presence: true
   validates :password, presence: true, if: Proc.new { |u| u.password_digest.blank? }
   validates_uniqueness_of :email
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
   has_secure_password
 
@@ -17,9 +18,5 @@ class User < ApplicationRecord
 
   def test_passage(test)
     test_passages.order(id: :desc).find_by(test_id: test.id)
-  end
-
-  def email_valid?
-    (email =~ /[-,.,0-9,a-z]*[@]\w+[.]\w{2,}/) == 0
   end
 end

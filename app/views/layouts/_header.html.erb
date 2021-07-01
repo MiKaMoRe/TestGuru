@@ -6,7 +6,7 @@
     <% if logged_in? %>
       <div class="profile">
         <p>Welcome, <b> <%= current_user.name %> </b> Guru</p>
-        <%= link_to 'Logout', '/logout' %>
+        <%= link_to 'Logout', '/logout', method: :delete %>
       </div>
     <% else %>
       <div class="profile">

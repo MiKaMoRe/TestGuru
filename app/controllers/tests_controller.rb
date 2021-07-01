@@ -11,14 +11,32 @@ class TestsController < ApplicationController
   end
 
   def start
-    @user = User.find(session[:user_id])
+    @user = current_user
     @user.tests.push(@test)
     redirect_to @user.test_passage(@test)
+  end
+  
+  def new
+    @test = Test.new
+  end
+
+  def create
+    @test = Test.new(test_params)
+    @test.author_id = session[:user_id]
+    if @test.save
+      redirect_to @test
+    else
+      render :new
+    end
   end
 
   private
 
   def find_test
     @test = Test.find(params['id'])
+  end
+
+  def test_params
+    params.require(:test).permit(:title, :level, :category_id)
   end
 end
