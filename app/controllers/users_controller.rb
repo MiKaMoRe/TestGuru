@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     
     if @user.save
       session[:user_id] = @user.id
-      redirect_to(cookies.delete :selected_path || root_path)
+      redirect_to cookies.delete(:selected_path) || root_path
     else
       render :new
     end
