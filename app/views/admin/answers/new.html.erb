@@ -1,0 +1,14 @@
+<%= form_with model: [:admin, @question, @answer] do |form| %>
+  <h3><%= answer_header @answer %></h3>
+  <div>
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+  <div>
+    <%= form.label :correct %>
+    <%= form.check_box :correct %>
+  </div>
+  <br>
+  <%= form.submit %>
+<% end %>
+<%= link_to 'Back to test questions', admin_question_path(@question) %>

@@ -6,6 +6,7 @@
     <%= test_count(test) %>
   </th>
   <th>
+    <%= link_to 'show', admin_test_path(test) %>
     <%= button_to 'start', start_test_path(test) %>
   </th>
 </tr>

@@ -1,0 +1,11 @@
+<%= form_with model: [:admin, @test, @question] do |form| %>
+  <% @question.test = @test %>
+  <h3><%= question_header @question %></h3>
+  <div>
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+  <br>
+  <%= form.submit %>
+<% end %>
+<%= link_to 'Back to test questions', admin_test_path(@test) %>
