@@ -1,0 +1,15 @@
+<tr>
+  <th>
+    <%= question.description %>
+  </th>
+  <th>
+    <%= link_to 'show', admin_question_path(question) %>
+    <%= link_to 'edit', edit_admin_question_path(question) %>
+    <%= 
+      link_to 'destroy', 
+      admin_question_path(question), 
+      method: :delete, 
+      data: { confirm: 'Are you sure?' } 
+    %>
+  </th>
+</tr>

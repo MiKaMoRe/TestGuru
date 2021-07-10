@@ -1,0 +1,14 @@
+<tr>
+  <th>
+    <%= answer.description %>
+  </th>
+  <th>
+    <%= link_to 'edit', edit_admin_answer_path(answer) %>
+    <%= 
+      link_to 'destroy', 
+      admin_answer_path(answer), 
+      method: :delete, 
+      data: { confirm: 'Are you sure?' } 
+    %>
+  </th>
+</tr>

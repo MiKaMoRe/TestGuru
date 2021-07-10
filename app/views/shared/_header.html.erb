@@ -1,0 +1,18 @@
+<header>
+  <div class="wrapper">
+    <div>
+      <h1><%= link_to 'TestGuru', '/' %></h1>
+    </div>
+    <% if user_signed_in? %>
+      <div class="profile">
+        <p>Welcome, <b> <%= current_user.nickname %> </b> Guru</p>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+      </div>
+    <% else %>
+      <div class="profile">
+        <%= link_to 'Register', '/gurus/sign_up' %>
+        <%= link_to 'Login', '/gurus/sign_in' %>
+      </div>
+    <% end %>
+  </div>
+</header>
