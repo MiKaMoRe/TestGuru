@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+# Use letter_opener
+gem 'letter_opener', '~> 1.7'
 
 # AUTH
 gem 'devise', '~> 4.0'
