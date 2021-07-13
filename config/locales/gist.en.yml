@@ -1,0 +1,7 @@
+en:
+  gist:
+    title: 'Table of all created gits'
+    table:
+      question: 'Questions'
+      url: 'Urls'
+      email: 'Emails'

@@ -12,7 +12,20 @@ class TestPassagesController < ApplicationController
     if @test_passage.completed?
       redirect_to result_test_passage_path(@test_passage)
     else
-      render :show
+      current_question = @test_passage.current_question
+      gist_question = GistQuestionService.new(current_question).call
+      gist = Gist.new(
+                      question: current_question, 
+                      url: gist_question.html_url,
+                      user: current_user.email
+                    )
+                    
+      if gist.save
+        flash[:notice] = gist_question.html_url
+        render :show
+      else
+        redirect_to current_question
+      end
     end
   end
 

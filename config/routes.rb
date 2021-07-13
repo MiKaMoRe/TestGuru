@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users, path: :gurus, 
                      path_name: { sign_in: :login, sign_out: :logout }, 
-                     controllers: { sessions: 'users/sessions' }
+                     controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
 
   get 'sessions/new'
   get 'users/new'
@@ -30,5 +30,6 @@ Rails.application.routes.draw do
         resources :answers, shallow: true
       end
     end
+    resources :gists, only: %i[index]
   end
 end
