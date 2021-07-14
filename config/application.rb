@@ -17,7 +17,6 @@ module TestGuru
     # in config/environments, which are processed later.
     #
     config.i18n.default_locale = :ru
-    config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
     config.time_zone = 'Moscow'
 
     # Autoloads

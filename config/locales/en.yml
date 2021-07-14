@@ -30,4 +30,12 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  gists:
+    index:
+      title: 'Table of all created gits'
+      table:
+        question: 'Questions'
+        url: 'Urls'
+        email: 'Emails'
+    create:
+      failure: 'An error occurred while saving gist'
