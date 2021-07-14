@@ -1,4 +1,9 @@
 class GistQuestionService
+  Struct.new('Gist', :html_url) do 
+    def success?
+      html_url.present? && html_url != ''
+    end
+  end
 
   def initialize(question, client: nil)
     @question = question
@@ -8,12 +13,7 @@ class GistQuestionService
   end
 
   def call
-    gist = @client.create_gist(gist_params) 
-    Struct.new('Gist', :html_url) do 
-      def success?
-        !@html_url.nil? && html_url != ''
-      end
-    end
+    gist = @client.create_gist(gist_params)
     Struct::Gist.new(gist.html_url)
   end
 
