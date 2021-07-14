@@ -8,8 +8,12 @@ class GistQuestionService
   end
 
   def call
-    gist = @client.create_gist(gist_params)
-    Struct.new('Gist', :url)
+    gist = @client.create_gist(gist_params) 
+    Struct.new('Gist', :html_url) do 
+      def success?
+        !@html_url.nil? && html_url != ''
+      end
+    end
     Struct::Gist.new(gist.html_url)
   end
 
