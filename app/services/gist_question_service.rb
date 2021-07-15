@@ -1,7 +1,7 @@
 class GistQuestionService
   Struct.new('Gist', :html_url) do 
     def success?
-      html_url.present? && html_url != ''
+      html_url.present?
     end
   end
 
