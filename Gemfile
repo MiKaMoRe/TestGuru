@@ -27,6 +27,9 @@ gem 'jbuilder', '~> 2.7'
 # Use letter_opener
 gem 'letter_opener', '~> 1.7'
 
+# UI
+gem 'octicons_helper'
+
 # AUTH
 gem 'devise', '~> 4.0'
 
