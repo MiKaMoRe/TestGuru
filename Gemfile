@@ -30,6 +30,9 @@ gem 'letter_opener', '~> 1.7'
 # AUTH
 gem 'devise', '~> 4.0'
 
+# UI
+gem 'octicons_helper'
+
 # Use Octokit API 
 gem "octokit", "~> 4.0" 
 
