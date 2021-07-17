@@ -1,46 +1,99 @@
 const $ = (elem) => document.querySelector(elem)
-const $$ = (elem) => document.querySelectorAll(elem)
+
+class Table{
+  constructor(domElem){
+    this.domElem = domElem
+    this.rows = this.setRows()
+    this.head = domElem.querySelector('tr')
+    this.arrowUp = new Arrow(this.head.querySelector('.octicon-arrow-up'))
+    this.arrowDown = new Arrow(this.head.querySelector('.octicon-arrow-down'))
+    this.isDesc = true
+  }
+
+  setRows(){
+    let rows = []
+    Array
+      .from(this.domElem.querySelectorAll('tr'))
+      .forEach( (row, index) => {
+        if (index == 0) {
+          return
+        }
+        rows.push(new TableRow(row))
+      })
+    return rows
+  }
+
+  sortingDescRows(){
+    let rows = []
+    this.sortingRowsTitles().forEach( title => {
+      this.rows.forEach( tr => {
+        if( title == tr.getTitle() ){
+          rows.push(tr)
+        }
+      })
+    })
+    this.arrowUp.hide()
+    this.arrowDown.show()
+    this.rows = rows
+  }
+
+  sortingAscRows(){
+    this.rows.reverse()
+    this.arrowUp.show()
+    this.arrowDown.hide()
+  }
+
+  getTitles(){
+    return this.rows.map(row => row.getTitle())
+  }
+
+  sortingRowsTitles(){
+    return Array
+      .from(this.rows)
+      .map( tr => tr.getTitle() )
+      .sort()
+  }
+
+  insertTable(target){
+    target.innerHTML = ''
+    target.appendChild(this.head)
+    this.rows.forEach( row => {
+      target.appendChild(row.domElem)
+    })
+  }
+}
+
+class TableRow{
+  constructor(domElem){
+    this.domElem = domElem
+  }
+
+  getTitle(){
+    return this.domElem.querySelector('td').innerText
+  }
+}
+
+class Arrow{
+  constructor(domElem){
+    this.domElem = domElem
+  }
+
+  hide(){
+    this.domElem.classList.remove('hide')
+  }
+
+  show(){
+    this.domElem.classList.add('hide')
+  }
+}
 
 document.addEventListener('turbolinks:load', () => {
   if ($('.sort-by-title')){
+    const table = new Table($('table'))
     $('.sort-by-title').addEventListener('click', target => {
-      let arrows = Array.from($$('.text-success'))
-      const table_head = $('table tbody tr:first-child')
-      let sorted_rows = []
-  
-      // Sorting titles
-      const sorted_titles = Array
-        .from($$('.filler'))
-        .map( tr => tr.querySelector('td:first-child').innerText )
-        .sort()
-      
-      // Sorting rows
-      sorted_titles.forEach( title => {
-        $$('.filler').forEach( tr => {
-          if(title == tr.querySelector('td:first-child').innerText){
-            sorted_rows.push(tr)
-          }
-        })
-      })
-
-      // Show first arrow
-      if (arrows.every( arrow => arrow.classList.contains('hide') )){
-        arrows[0].classList.toggle('hide')
-      }
-
-      // Reverse sorted rows
-      if (arrows[0].classList.contains('hide')) {
-        sorted_rows.reverse()
-      }
-
-      arrows.map( arrow => arrow.classList.toggle('hide'))
-      sorted_rows.unshift(table_head)
-      $('table tbody').innerHTML = ''
-
-      // Add into document
-      sorted_rows.forEach( row => {
-        $('table tbody').appendChild(row)
-      })
+      table.isDesc ? table.sortingDescRows() : table.sortingAscRows()
+      table.isDesc = !table.isDesc
+      table.insertTable($('table tbody'))
     })
   }
 })

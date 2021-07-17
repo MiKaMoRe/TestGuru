@@ -1,37 +1,66 @@
 const $ = (elem) => document.querySelector(elem)
-const $$ = (elem) => document.querySelectorAll(elem)
+
+class Coincidence{
+  constructor(pass, pass_conf){
+    this.pass = new Input(pass),
+    this.pass_conf = new Input(pass_conf)
+    this.pass.domElem.addEventListener('input',  f => {this.compare()} )
+    this.pass_conf.domElem.addEventListener('input', f => {this.compare()} )
+  }
+
+  compare(){
+    if( this.pass.isBlank() && this.pass_conf.isBlank() ){
+      this.pass.blank()
+      this.pass_conf.blank()
+    } else if ( this.pass.value() == this.pass_conf.value() ){
+      this.pass.correct()
+      this.pass_conf.correct()
+    } else {
+      this.pass.incorrect()
+      this.pass_conf.incorrect()
+    }
+  }
+}
+
+class Input{
+  constructor(domElem){
+    this.domElem = domElem
+  }
+
+  correct(){
+    this.domElem.classList.add('correct')
+    this.domElem.classList.remove('incorrect')
+  }
+
+  incorrect(){
+    this.domElem.classList.add('incorrect')
+    this.domElem.classList.remove('correct')
+  }
+
+  blank(){
+    this.domElem.classList.remove('incorrect')
+    this.domElem.classList.remove('correct')
+  }
+
+  isHide(){
+    return this.domElem.classList.contains('hide')
+  }
+
+  isBlank(){
+    return this.domElem.value == ''
+  }
+
+  classes(){
+    return this.domElem.classList
+  }
+
+  value(){
+    return this.domElem.value
+  }
+}
 
 document.addEventListener('turbolinks:load', () => {
   if ($('#user_password_confirmation')){
-    let pass = $('#user_password')
-    let pass_conf = $('#user_password_confirmation')
-    let correct = () => {
-      pass.classList.add('correct')
-      pass_conf.classList.add('correct')
-      pass.classList.remove('incorrect')
-      pass_conf.classList.remove('incorrect')
-    }
-    let incorrect = () => {
-      pass.classList.add('incorrect')
-      pass_conf.classList.add('incorrect')
-      pass.classList.remove('correct')
-      pass_conf.classList.remove('correct')
-    }
-    let blank = () => {
-      pass.classList.remove('incorrect')
-      pass_conf.classList.remove('incorrect')
-    }
-    let check_confirmation = () => {
-      if (pass.value == '' || pass_conf.value == '') {
-        blank()
-      } else if (pass.value == pass_conf.value){
-        correct()
-      } else {
-        incorrect()
-      }
-    }
-
-    pass.addEventListener('input', check_confirmation)
-    pass_conf.addEventListener('input', check_confirmation)
+    new Coincidence($('#user_password'), $('#user_password_confirmation'))
   }
 })
