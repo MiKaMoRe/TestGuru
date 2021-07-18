@@ -1,0 +1,24 @@
+table{
+  width: 100%;
+  & tbody{
+    display: flex;
+    flex-direction: column;
+  }
+  & tr{
+    display: grid;
+    grid-template-columns: 10fr 100px 2fr;
+    gap: 3px;
+    padding: 10px;
+    & td:last-of-type{
+      justify-content: space-between;
+      flex-direction: row-reverse;
+    }
+    & td:nth-child(2){
+      justify-content: center;
+    }
+  }
+  & td{
+    display: flex;
+    border-bottom: 1px solid #000;
+  }
+}
