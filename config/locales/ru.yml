@@ -8,3 +8,14 @@ ru:
         email: 'Почты'
     create:
       failure: 'Во время создания gits произошла ошибка'
+  admin:
+    tests:
+      form_inline:
+        submit: 'ОК'
+  activerecord:
+    errors:
+      models:
+        test:
+          attributes:
+            title:
+              blank: 'Название вопроса не может быть пустым'

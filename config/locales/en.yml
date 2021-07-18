@@ -39,3 +39,7 @@ en:
         email: 'Emails'
     create:
       failure: 'An error occurred while saving gist'
+  admin:
+    tests:
+      form_inline:
+        submit: 'OK'
