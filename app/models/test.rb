@@ -7,7 +7,7 @@ class Test < ApplicationRecord
   has_many :questions, dependent: :destroy
 
   validates :level, numericality: { only_integer: true, greater_than: -1 }
-  validates :title, uniqueness: { scope: :level }
+  validates :title, uniqueness: { scope: :level }, presence: true
 
   scope :easy, -> { where(level: (0..1)) }
   scope :normal, -> { where(level: (2..4)) }
