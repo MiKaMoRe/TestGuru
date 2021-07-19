@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-07-19T13:30:41.486Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36" etag="4vuhMckOpVe2S495PpRv" version="14.9.0" type="github">
+<mxfile host="app.diagrams.net" modified="2021-07-19T15:27:15.217Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36" etag="DZEtaUb4hvUJUA17LuiP" version="14.9.0" type="github">
   <diagram id="1iNG9odAQdoM7o_44WF4" name="Page-1">
     <mxGraphModel dx="843" dy="448" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -61,8 +61,8 @@
         <mxCell id="O5y0IRKkQf3M5uBfrj-I-20" value="app/specification/badges/*.rb" style="text;align=center;fontStyle=1;verticalAlign=middle;spacingLeft=3;spacingRight=3;strokeColor=none;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="1">
           <mxGeometry x="400" y="374" width="210" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="O5y0IRKkQf3M5uBfrj-I-24" value="if Specification::Badges::SomeRule.new()&#xa;    current_user.add_badge(badge)&#xa;end" style="text;align=left;fontStyle=1;verticalAlign=middle;spacingLeft=3;spacingRight=3;strokeColor=none;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="1">
-          <mxGeometry x="120" y="290" width="270" height="56" as="geometry" />
+        <mxCell id="O5y0IRKkQf3M5uBfrj-I-24" value="if Specification::Badges::SomeRule.new()&#xa;    current_user.add_badge(badge).satisfied_by?&#xa;end" style="text;align=left;fontStyle=1;verticalAlign=middle;spacingLeft=3;spacingRight=3;strokeColor=none;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="1">
+          <mxGeometry x="60" y="439" width="320" height="56" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
