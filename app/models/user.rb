@@ -10,6 +10,7 @@ class User < ApplicationRecord
          :validatable
 
   has_many :test_passages
+  has_and_belongs_to_many :badges
   has_many :tests, through: :test_passages, dependent: :destroy
   has_many :created_tests, foreign_key: 'author_id', class_name: 'Test', dependent: :destroy
 
@@ -25,5 +26,9 @@ class User < ApplicationRecord
 
   def test_passage(test)
     test_passages.order(id: :desc).find_by(test_id: test.id)
+  end
+
+  def add_badge(badge)
+    badges.push(badge)
   end
 end

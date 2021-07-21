@@ -2,9 +2,18 @@ class TestPassagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_test_passage, only: %i[show update result]
 
-  def show; end
+  def show
+    unless @test_passage.current_question
+      redirect_to tests_path(@test_passage.test)
+    end
+  end
 
-  def result; end
+  def result
+    added_badges = BadgeManager.call(@test_passage)
+    added_badges.each do |badge| 
+      flash[:notice] = "Вы заслужили бейдж - #{badge.title}!"
+    end
+  end
 
   def update
     @test_passage.accept!(params['answer_ids'])

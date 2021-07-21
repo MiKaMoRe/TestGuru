@@ -1,0 +1,24 @@
+.badge{
+  display: flex;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+  & img{
+    padding-right: 20px;
+    width: 120px;
+    height: 120px;
+  }
+}
+
+.badges{
+  &__unlocked{
+    & .badge{
+      background: #29ff038a;
+    }
+  }
+  &__all{
+    & .badge{
+      background: #00000034;
+    }
+  }
+}
