@@ -6,8 +6,17 @@
                   current_question: @test_passage.current_question_number,
                   amount_questions: @test_passage.questions.count
                 } %>
+
 <%= @test_passage.current_question_number %> questions out of <%= @test_passage.questions.count %>
+
+<%= content_tag :div, 
+                class: 'timer', 
+                data: { time_left: @time_left } do %>
+  <div class="hours"></div>:<div class="minutes"></div>:<div class="seconds"></div>
+<% end %>
+
 <br>
+
 <b>
   <%= @test_passage.current_question.description %>
 </b>

@@ -16,8 +16,6 @@ class Progressbar{
     const data = this.domElem.dataset
     this.completedElem.style.width = `${data.currentQuestion / data.amountQuestions * 100}%`
   }
-
-
 }
 
 export default Progressbar

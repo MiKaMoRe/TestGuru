@@ -21,11 +21,11 @@ users = User.create!([
 # Tests
 tests = Test.create!([
                        { title: 'How are you?', category: categories[1], author: users[0] },
-                       { title: 'Personal pronouns', category: categories[1], author: users[0] },
-                       { title: 'HTTP protocol', category: categories[0], author: users[1] },
-                       { title: 'ORM', category: categories[0], author: users[1], level: 5 },
-                       { title: 'Rails models', category: categories[0], author: users[1], level: 2 },
-                       { title: 'Windows', category: categories[2], author: users[0] }
+                       { title: 'Personal pronouns', category: categories[1], author: users[0], remaining_time: 15 },
+                       { title: 'HTTP protocol', category: categories[0], author: users[1], remaining_time: 15 },
+                       { title: 'ORM', category: categories[0], author: users[1], level: 5, remaining_time: 15 },
+                       { title: 'Rails models', category: categories[0], author: users[1], level: 2, remaining_time: 15 },
+                       { title: 'Windows', category: categories[2], author: users[0], remaining_time: 1 }
                      ])
 # Questions
 questions = Question.create!([
