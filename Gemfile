@@ -27,9 +27,6 @@ gem 'jbuilder', '~> 2.7'
 # Use letter_opener
 gem 'letter_opener', '~> 1.7'
 
-# Timer
-gem 'rufus-scheduler'
-
 # UI
 gem 'octicons_helper'
 

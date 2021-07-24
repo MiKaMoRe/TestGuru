@@ -12,9 +12,18 @@ class Timer{
     const minutes = Math.floor(this.amountSeconds / 60) - hours * 60
     const seconds = this.amountSeconds - hours * 60 - minutes * 60
 
-    this.hours.innerText = hours
-    this.minutes.innerText = minutes
-    this.seconds.innerText = seconds
+    this.hours.innerText = hours < 0 ? 0 : hours
+    this.minutes.innerText = minutes < 0 ? 0 : minutes
+    this.seconds.innerText = seconds < 0 ? 0 : seconds
+  }
+
+  start(){
+    setInterval( () => { this.change_time() } , 1000)
+  }
+
+  change_time(){
+    this.amountSeconds -= 1
+    this.timeSet()
   }
 }
 

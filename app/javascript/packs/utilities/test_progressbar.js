@@ -1,4 +1,4 @@
-import Progressbar from './Progressbar'
+import Progressbar from '../entities/Progressbar'
 
 const testProgressbar = () => {
   if (document.querySelector('.test-progressbar')) {

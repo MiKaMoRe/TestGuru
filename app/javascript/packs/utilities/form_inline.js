@@ -1,4 +1,4 @@
-import FormInline from './FormInline'
+import FormInline from '../entities/FormInline'
 
 const form_inline = () => {
   const controls = document.querySelectorAll('.form-inline-link')
