@@ -1,4 +1,4 @@
-import Coincidence  from "./Coincidence"
+import Coincidence  from "../entities/Coincidence"
 
 const password_coincidence = () => {
   if (document.querySelector('#user_password_confirmation')){

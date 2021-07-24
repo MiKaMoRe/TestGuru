@@ -1,4 +1,4 @@
-import Table from './Table'
+import Table from '../entities/Table'
 
 const sorting = () => {
   if (document.querySelector('.sort-by-title')){

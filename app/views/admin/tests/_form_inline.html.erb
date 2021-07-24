@@ -4,5 +4,6 @@
               class: 'form-inline hide',
               data: { test_id: test.id } do |form| %>
   <%= form.text_field :title, class: 'form-control' %>
+  <%= form.number_field :remaining_time, class: 'form-control' %>
   <%= form.submit t('.submit') %>
 <% end %>
