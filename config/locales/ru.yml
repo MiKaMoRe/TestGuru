@@ -1,2 +1,10 @@
 ru:
-  hello: 'Hello world'
+  gists:
+    index:
+      title: 'Таблица всех созданных gist'
+      table:
+        question: 'Вопросы'
+        url: 'Ссылки'
+        email: 'Почты'
+    create:
+      failure: 'Во время создания gits произошла ошибка'
