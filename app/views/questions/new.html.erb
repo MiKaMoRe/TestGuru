@@ -1,0 +1,6 @@
+<form action="/tests/<%= params[:test_id] %>/questions" method="post">
+  <h3>Создать вопрос:</h3>
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <input type="text" name="question[description]" placeholder="Описание">
+  <input type="submit" value="Создать">
+</form>
