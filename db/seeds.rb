@@ -22,8 +22,8 @@ tests = Test.create!([
   { title: 'How are you?', category: categories[1], author: users[0] },
   { title: 'Personal pronouns', category: categories[1], author: users[0] },
   { title: 'HTTP protocol', category: categories[0], author: users[1] },
-  { title: 'ORM', category: categories[0], author: users[1] },
-  { title: 'Rails models', category: categories[0], author: users[1], level: 1 }
+  { title: 'ORM', category: categories[0], author: users[1], level: 5 },
+  { title: 'Rails models', category: categories[0], author: users[1], level: 2 }
 ])
 # Questions
 questions = Question.create!([
@@ -51,5 +51,5 @@ tests_user = TestsUser.create!([
   { test: tests[1], user: users[0], progress: 100, points: 87 },
   { test: tests[0], user: users[0], progress: 100, points: 45 },
   { test: tests[2], user: users[1] },
-  { test: tests[0], user: users[1], progress: 56 , points: 10}
+  { test: tests[0], user: users[1], progress: 56, points: 10 }
 ])
