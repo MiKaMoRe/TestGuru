@@ -19,37 +19,37 @@ users = User.create!([
 ])
 # Tests
 tests = Test.create!([
-  { title: 'How are you?', category_id: categories[1].id, author_id: users[0].id },
-  { title: 'Personal pronouns', category_id: categories[1].id, author_id: users[0].id },
-  { title: 'HTTP protocol', category_id: categories[0].id, author_id: users[1].id },
-  { title: 'ORM', category_id: categories[0].id, author_id: users[1].id },
-  { title: 'Rails models', category_id: categories[0].id, author_id: users[1].id, level: 1 }
+  { title: 'How are you?', category: categories[1], author: users[0] },
+  { title: 'Personal pronouns', category: categories[1], author: users[0] },
+  { title: 'HTTP protocol', category: categories[0], author: users[1] },
+  { title: 'ORM', category: categories[0], author: users[1] },
+  { title: 'Rails models', category: categories[0], author: users[1], level: 1 }
 ])
 # Questions
 questions = Question.create!([
-  { description: 'I __ a new student', test_id: tests[0].id },
-  { description: 'Manny and Max __ here ', test_id: tests[0].id },
-  { description: 'What is HTTP protocol?', test_id: tests[2].id }
+  { description: 'I __ a new student', test: tests[0] },
+  { description: 'Manny and Max __ here ', test: tests[0] },
+  { description: 'What is HTTP protocol?', test: tests[2] }
 ])
 # Answers
 answers = Answer.create!([
-  { description: 'are', question_id: questions[0].id },
-  { description: 'am', question_id: questions[0].id },
-  { description: 'is', question_id: questions[0].id, correct: true },
-  { description: 'is not', question_id: questions[1].id },
-  { description: 'arent', question_id: questions[1].id },
-  { description: 'aren\'', question_id: questions[1].id },
+  { description: 'are', question: questions[0] },
+  { description: 'am', question: questions[0] },
+  { description: 'is', question: questions[0], correct: true },
+  { description: 'is not', question: questions[1] },
+  { description: 'arent', question: questions[1] },
+  { description: 'aren\'', question: questions[1] },
   {
     description: 'The HTTP is an application layer protocol for distributed, collaborative, hypermedia information systems.',
-    question_id: questions[2].id,
+    question: questions[2],
     correct: true
   },
-  { description: 'I dont know', question_id: questions[2].id }
+  { description: 'I dont know', question: questions[2] }
 ])
-# Results
-results = Result.create!([
-  { points: 20, test_id: tests[0].id, user_id: users[1].id },
-  { points: 100, test_id: tests[1].id, user_id: users[0].id },
-  { points: 89, test_id: tests[2].id, user_id: users[0].id },
-  { points: 70, test_id: tests[4].id, user_id: users[1].id }
+# TestsUser
+tests_user = TestsUser.create!([
+  { test: tests[1], user: users[0], progress: 100, points: 87 },
+  { test: tests[0], user: users[0], progress: 100, points: 45 },
+  { test: tests[2], user: users[1] },
+  { test: tests[0], user: users[1], progress: 56 , points: 10}
 ])
