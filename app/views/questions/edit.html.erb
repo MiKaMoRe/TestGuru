@@ -1,1 +1,11 @@
-<%= link_to 'destroy', "/questions/#{params[:id]}", method: :delete %>
+<%= form_with model: @question do |form| %>
+  <% @test = @question.test %>
+  <h3><%= question_header :edit, @test %></h3>
+  <div>
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+  <br>
+  <%= form.submit %>
+<% end %>
+<%= link_to 'Back to test questions', test_path(@question.test_id) %>
