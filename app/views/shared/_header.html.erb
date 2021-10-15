@@ -5,6 +5,7 @@
     </div>
     <% if user_signed_in? %>
       <div class="profile">
+        <%= link_to 'Profile', badges_path %>
         <p>Welcome, <b> <%= current_user.nickname %> </b> Guru</p>
         <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
       </div>

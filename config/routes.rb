@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   resources :users, only: :create
   resources :sessions, only: :create
+  resources :badges, only: :index
 
   resources :tests, only: :index do
     post :start, on: :member
@@ -34,5 +35,6 @@ Rails.application.routes.draw do
       end
     end
     resources :gists, only: %i[index]
+    resources :badges, only: %i[create new]
   end
 end
