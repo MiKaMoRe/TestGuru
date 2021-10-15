@@ -1,0 +1,6 @@
+<h2>The <%= @test_passage.test.title %> test was complited!</h2>
+<div class="results">
+  <h1>RESULTS:</h1>
+  <%= render 'test_passages/result' %>
+</div>
+<%= link_to 'Back to tests list', tests_path(@test_passage.test_id) %>

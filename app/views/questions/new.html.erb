@@ -1,5 +1,6 @@
 <%= form_with model: [@test, @question] do |form| %>
-  <h3><%= question_header :create, @test %></h3>
+  <% @question.test = @test %>
+  <h3><%= question_header @question %></h3>
   <div>
     <%= form.label :description %>
     <%= form.text_field :description %>
