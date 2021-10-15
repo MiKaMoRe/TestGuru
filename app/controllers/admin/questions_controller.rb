@@ -23,7 +23,7 @@ class Admin::QuestionsController < Admin::BaseController
     if @question.update(question_params)
       redirect_to [:admin, @question.test]
     else
-      render :new
+      render :edit
     end
   end
 

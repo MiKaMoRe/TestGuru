@@ -1,0 +1,10 @@
+.test-progressbar{
+  border: 1px solid #000000;
+  background-color: #b9b9b9;
+  height: 5px;
+  margin: 10px 0;
+  & .complited{
+    height: 100%;
+    background-color: #1ee604;
+  }
+}

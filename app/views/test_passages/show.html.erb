@@ -1,5 +1,13 @@
 <h1>Passing the <%= @test_passage.test.title %></h1>
-
+<%= content_tag :div, 
+                '', 
+                class: 'test-progressbar', 
+                data: { 
+                  current_question: @test_passage.current_question_number,
+                  amount_questions: @test_passage.questions.count
+                } %>
+<%= @test_passage.current_question_number %> questions out of <%= @test_passage.questions.count %>
+<br>
 <b>
   <%= @test_passage.current_question.description %>
 </b>
@@ -14,5 +22,3 @@
   <p><%= link_to 'Gist Question', test_passage_gists_path(@test_passage), method: :post %></p>
   <%= form.submit 'Next' %>
 <% end %>
-
-<%= @test_passage.current_question_number %> questions out of <%= @test_passage.questions.count %>
