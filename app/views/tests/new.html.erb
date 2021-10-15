@@ -1,0 +1,20 @@
+<%= form_with model: @test, local: true do |form| %>
+  <%= render 'shared/errors', resource: @test %>
+
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+  <br>
+  <div>
+    <%= form.label :level %>
+    <%= form.number_field :level %>
+  </div>
+  <br>
+  <div>
+    <%= form.label :category %>
+    <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
+  </div>
+  <%= form.submit %>
+<% end %>
+<%= link_to 'Back to test questions', tests_path(@test) %>
